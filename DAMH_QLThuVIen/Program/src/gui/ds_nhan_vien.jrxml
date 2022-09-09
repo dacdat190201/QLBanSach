@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b2473bc-6d18-4b11-a537-6435591b1060">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="ad071872-098f-43a8-ba17-cb12c81d7a99">
+		<queryString language="SQL">
+			<![CDATA[select *from NHANVIEN]]>
+		</queryString>
+		<field name="MANV" class="java.lang.String"/>
+		<field name="TENNV" class="java.lang.String"/>
+		<field name="NGAYSINH" class="java.sql.Timestamp"/>
+		<field name="GIOITINH" class="java.lang.String"/>
+		<field name="EMAIL" class="java.lang.String"/>
+		<field name="SODT" class="java.lang.String"/>
+		<field name="HINHANH" class="oracle.jdbc.OracleBlob"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     NHANVIEN."MANV" AS NHANVIEN_MANV,
+     NHANVIEN."TENNV" AS NHANVIEN_TENNV,
+     NHANVIEN."NGAYSINH" AS NHANVIEN_NGAYSINH,
+     NHANVIEN."GIOITINH" AS NHANVIEN_GIOITINH,
+     NHANVIEN."EMAIL" AS NHANVIEN_EMAIL,
+     NHANVIEN."SODT" AS NHANVIEN_SODT,
+     NHANVIEN."HINHANH" AS NHANVIEN_HINHANH
+FROM
+     "ADMIN_SACH"."NHANVIEN" NHANVIEN]]>
+	</queryString>
+	<field name="NHANVIEN_MANV" class="java.lang.String"/>
+	<field name="NHANVIEN_TENNV" class="java.lang.String"/>
+	<field name="NHANVIEN_NGAYSINH" class="java.sql.Timestamp"/>
+	<field name="NHANVIEN_GIOITINH" class="java.lang.String"/>
+	<field name="NHANVIEN_EMAIL" class="java.lang.String"/>
+	<field name="NHANVIEN_SODT" class="java.lang.String"/>
+	<field name="NHANVIEN_HINHANH" class="oracle.jdbc.OracleBlob"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="16" width="555" height="52" uuid="14b6faca-d46c-451f-8105-fe970cfc2562"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DANH SÁCH NHÂN VIÊN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="399" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="0" y="22" width="555" height="70" uuid="ddf284c8-9a23-4091-bd10-054d0bf9f499"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1" uuid="59d5c97b-607a-4c62-9b2e-33192657e6c3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="75" uuid="d05b5c64-b925-4ec0-885b-c51404715986">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="4" y="0" width="70" height="30" uuid="d4600ef0-5dac-47bc-b3c3-205663a3cb83"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Mã nhân viên]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="55" height="20" uuid="35e9e1cb-d211-442c-8ca5-a232ac2d0ad7"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{MANV}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="107" uuid="10272467-fb37-4302-b3ee-445a2189aacb">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="7" y="0" width="90" height="30" uuid="8a97079b-3d5c-4667-a801-b11c02bec043"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tên nhân viên]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="90" height="20" uuid="d0e56b3c-639a-44ea-94cc-c6cdb3e3ddeb"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{TENNV}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="96391997-699b-4c78-8aad-d4520e8ec7fa">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="8" y="0" width="72" height="30" uuid="b779237a-52bc-4ca8-ada3-979e389a3c7e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Ngày sinh]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="3" y="0" width="80" height="20" uuid="def57535-4311-4c12-9f90-0112fae8906a"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{NGAYSINH}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="65" uuid="fb3ef9e4-2c68-44be-997a-12fa2043088e">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="6" y="0" width="55" height="30" uuid="98bb944c-0926-4892-b11b-6f4b243821ce"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Giới tính]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="3" y="0" width="55" height="20" uuid="bd4883f9-4c23-46ec-8c52-a7c18dd2ea66"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{GIOITINH}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="134" uuid="a675eb35-5e87-4439-95f8-64654c1fce2b">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="10" y="0" width="90" height="30" uuid="a0e108c9-1a31-46b8-acef-d2be4bcd7f6a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Email]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="132" height="20" uuid="4bd9ce78-fb2d-4016-a3ac-3e59be0aa01b"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="af4a40ce-d818-414e-aa84-427312e7faa1">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="6" y="0" width="70" height="30" uuid="92056e4a-c6a1-440a-9aa1-89a37c1b6c53"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Số điện thoại]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="90" height="20" uuid="aa533c43-2f00-4dd5-8c64-90b46d910a88"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{SODT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
